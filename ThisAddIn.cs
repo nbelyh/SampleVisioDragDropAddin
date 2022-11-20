@@ -1,4 +1,6 @@
-﻿using Microsoft.Office.Interop.Visio;
+﻿using System;
+using Microsoft.Office.Interop.Visio;
+using System.Windows.Forms;
 
 namespace DragDropAddin
 {
@@ -9,7 +11,7 @@ namespace DragDropAddin
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             Application.Documents.Add("");
-            _form1.Show();
+            _form1.Show(NativeWindow.FromHandle((IntPtr)Application.Window.WindowHandle32));
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
